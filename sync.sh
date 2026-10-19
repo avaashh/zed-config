@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run by launchd (com.avaashh.zed-config-sync) whenever ~/.config/zed changes.
+# Run by launchd (com.avaashh.zed-config-sync) on changes to ~/.config/zed and hourly.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -14,6 +14,13 @@ if [ -n "$changed" ]; then
   else
     git commit -qm "Update zed config"
   fi
+fi
+
+git fetch -q origin
+if ! git rebase -q origin/main; then
+  git rebase --abort
+  echo "$(date): rebase onto origin/main conflicted, resolve by hand" >&2
+  exit 1
 fi
 
 if [ -n "$(git log origin/main..main --oneline)" ]; then
