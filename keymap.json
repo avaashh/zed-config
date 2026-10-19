@@ -1,0 +1,25 @@
+[
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-enter": ["terminal::SendText", "\u001b\r"],
+    },
+  },
+  {
+    "context": "",
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal",
+    },
+  },
+  {
+    "unbind": {
+      "cmd-shift-c": "collab_panel::ToggleFocus",
+    },
+  },
+  {
+    "context": "",
+    "bindings": {
+      "cmd-shift-c": "workspace::CopyRelativePath",
+    },
+  },
+]
