@@ -5,10 +5,17 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 t3_userdata="$HOME/.t3/userdata"
-t3_files=(settings.json keybindings.json client-settings.json)
+
+t3_files() {
+  {
+    printf '%s\n' settings.json keybindings.json client-settings.json
+    (cd "$t3_userdata" && ls themes/*.json 2>/dev/null) || true
+    ls t3/themes/*.json 2>/dev/null | sed 's|^t3/||' || true
+  } | sort -u
+}
 # Last version this Mac synced, per file. Lets copy_in tell a local edit from a stale copy.
 synced=.git/t3-synced
-mkdir -p t3 "$synced"
+mkdir -p t3/themes "$synced/themes" "$t3_userdata/themes"
 
 t3_running() {
   pgrep -qf 'T3 Code \(Beta\)\.app/Contents/MacOS/'
@@ -16,7 +23,7 @@ t3_running() {
 
 copy_in() {
   local f
-  for f in "${t3_files[@]}"; do
+  for f in $(t3_files); do
     [ -f "$t3_userdata/$f" ] || continue
     if [ -f "$synced/$f" ]; then
       cmp -s "$t3_userdata/$f" "$synced/$f" && continue
@@ -31,7 +38,7 @@ copy_in() {
 
 copy_out() {
   local f
-  for f in "${t3_files[@]}"; do
+  for f in $(t3_files); do
     [ -f "t3/$f" ] || continue
     if ! cmp -s "t3/$f" "$t3_userdata/$f"; then
       # The desktop app holds client settings in memory and would overwrite the file.
@@ -39,8 +46,8 @@ copy_out() {
         echo "$(date): T3 is running, client-settings.json applies on a pull after quitting it" >&2
         continue
       fi
-      cp "t3/$f" "$t3_userdata/.$f.sync"
-      mv "$t3_userdata/.$f.sync" "$t3_userdata/$f"
+      cp "t3/$f" "$t3_userdata/$f.sync-tmp"
+      mv "$t3_userdata/$f.sync-tmp" "$t3_userdata/$f"
     fi
     cp "t3/$f" "$synced/$f"
   done
