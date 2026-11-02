@@ -94,6 +94,7 @@
   "idleCompaction": "onReturn",
   "snoozeLimitedThreads": true,
   "sidebarAutoSettleKeepPullRequests": true,
+  "environmentIcon": "server",
   "addProjectBaseDirectory": "~/Desktop/Projects",
   "textGenerationModelSelection": {
     "instanceId": "claudeAgent",
