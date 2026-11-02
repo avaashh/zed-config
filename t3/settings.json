@@ -1,0 +1,122 @@
+{
+  "favorites": [
+    {
+      "provider": "claudeAgent",
+      "model": "claude-opus-5-5"
+    },
+    {
+      "provider": "claudeAgent",
+      "model": "claude-sonnet-5-5"
+    },
+    {
+      "provider": "claudeAgent",
+      "model": "claude-fable-5-1"
+    }
+  ],
+  "providerModelPreferences": {
+    "claudeAgent": {
+      "hiddenModels": [
+        "claude-fable-5",
+        "claude-opus-5",
+        "claude-opus-4-8",
+        "claude-opus-4-7",
+        "claude-opus-4-6",
+        "claude-opus-4-5",
+        "claude-sonnet-5",
+        "claude-sonnet-4-6",
+        "claude-haiku-4-5"
+      ],
+      "modelOrder": []
+    },
+    "claw": {
+      "hiddenModels": [
+        "claude-fable-5-1",
+        "claude-fable-5",
+        "claude-opus-5",
+        "claude-opus-4-8",
+        "claude-opus-4-7",
+        "claude-opus-4-6",
+        "claude-opus-4-5",
+        "claude-sonnet-5",
+        "claude-sonnet-4-6",
+        "claude-haiku-5-5",
+        "claude-haiku-4-5"
+      ],
+      "modelOrder": []
+    },
+    "opencode": {
+      "hiddenModels": [
+        "opencode/beam-free",
+        "opencode/big-pickle",
+        "anthropic/claude-fable-5",
+        "anthropic/claude-fable-5-1",
+        "anthropic/claude-haiku-4-5-20251001",
+        "anthropic/claude-haiku-4-5",
+        "anthropic/claude-haiku-5-5",
+        "anthropic/claude-opus-4-5-20251101",
+        "anthropic/claude-opus-4-5",
+        "anthropic/claude-opus-4-6",
+        "anthropic/claude-opus-4-7",
+        "anthropic/claude-opus-4-8",
+        "anthropic/claude-opus-4-8-fast",
+        "anthropic/claude-opus-5",
+        "anthropic/claude-opus-5-fast",
+        "anthropic/claude-opus-5-5-fast",
+        "anthropic/claude-sonnet-4-5-20250929",
+        "anthropic/claude-sonnet-4-5",
+        "anthropic/claude-sonnet-4-6",
+        "anthropic/claude-sonnet-5",
+        "opencode/flint-40b-free",
+        "opencode/mimo-v2.6-flash-free",
+        "opencode/nemotron-3.5-lightning-free",
+        "opencode/nemotron-3.5-super-vl-free",
+        "neuron/qwen3-coder"
+      ],
+      "modelOrder": []
+    }
+  },
+  "defaultModelSelection": {
+    "instanceId": "claudeAgent",
+    "model": "claude-opus-5-5",
+    "options": [
+      {
+        "id": "effort",
+        "value": "high"
+      }
+    ]
+  },
+  "fallbackModelSelection": {
+    "instanceId": "opencode",
+    "model": "anthropic/claude-opus-5-5"
+  },
+  "projectSettingsFolded": true,
+  "sidebarAutoSettleAfterDays": 7,
+  "idleCompaction": "onReturn",
+  "snoozeLimitedThreads": true,
+  "sidebarAutoSettleKeepPullRequests": true,
+  "addProjectBaseDirectory": "~/Desktop/Projects",
+  "textGenerationModelSelection": {
+    "instanceId": "claudeAgent",
+    "model": "claude-haiku-5-5",
+    "options": [
+      {
+        "id": "effort",
+        "value": "low"
+      }
+    ]
+  },
+  "providerInstances": {
+    "claudeAgent": {
+      "driver": "claudeAgent",
+      "displayName": "Clax",
+      "config": {
+        "homePath": "~/.clax"
+      }
+    },
+    "opencode": {
+      "driver": "opencode",
+      "displayName": "OpenCode",
+      "enabled": true
+    }
+  }
+}
