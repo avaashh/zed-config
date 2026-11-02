@@ -7,6 +7,11 @@ domain="gui/$(id -u)"
 
 git -C "$dir" config user.email 84456448+avaashh@users.noreply.github.com
 
+# The synced T3 settings point the Claude provider at ~/.clax; some Macs keep it in ~/.claude.
+if [ ! -e "$HOME/.clax" ] && [ -d "$HOME/.claude" ]; then
+  ln -s "$HOME/.claude" "$HOME/.clax"
+fi
+
 # Replaced by the push/pull pair below.
 launchctl bootout "$domain/com.avaashh.zed-config-sync" 2>/dev/null || true
 rm -f "$agents/com.avaashh.zed-config-sync.plist"
