@@ -44,6 +44,9 @@ install_agent push "  <key>WatchPaths</key>
     <string>$dir/settings.json</string>
     <string>$dir/keymap.json</string>
     <string>$dir/themes</string>
+    <string>$HOME/.t3/userdata/settings.json</string>
+    <string>$HOME/.t3/userdata/keybindings.json</string>
+    <string>$HOME/.t3/userdata/client-settings.json</string>
   </array>"
 
 # launchd rather than cron: a run missed while the Mac sleeps fires on wake.
