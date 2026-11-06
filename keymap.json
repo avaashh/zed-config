@@ -12,6 +12,12 @@
     },
   },
   {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-t": "workspace::NewCenterTerminal",
+    },
+  },
+  {
     "unbind": {
       "cmd-shift-c": "collab_panel::ToggleFocus",
     },
