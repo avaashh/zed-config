@@ -27,8 +27,8 @@
   "git_panel": {
     "dock": "left"
   },
-  "ensure_final_newline_on_save": true,
-  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": false,
+  "remove_trailing_whitespace_on_save": false,
   "format_on_save": "off",
   "project_panel": {
     "dock": "left",
